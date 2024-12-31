@@ -254,3 +254,6 @@ ul {
 PROJECT CSS
 ===============
 */
+body {
+  background: var(--primary-500);
+}
