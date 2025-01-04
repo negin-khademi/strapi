@@ -6,7 +6,7 @@ const Submenu = () => {
   const currentpage = sublinks.find((item) => item.pageId === pageId);
 
   return (
-    <div className="submenu">
+    <div className={currentpage ? 'submenu show-submenu' : 'submenu'}>
       <h5>{currentpage?.page}</h5>
       <div
         className="submenu-links"
