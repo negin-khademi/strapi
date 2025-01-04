@@ -257,12 +257,12 @@ PROJECT CSS
 body {
   background: var(--primary-500);
 }
-
 /*
 =============
 Navbar
 ===============
 */
+
 nav {
   height: 5rem;
   display: flex;
@@ -271,6 +271,7 @@ nav {
 }
 .nav-center {
   width: var(--fluid-width);
+  max-width: var(--max-width);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -278,15 +279,16 @@ nav {
 .logo {
   text-transform: none;
   color: var(--white);
-  font-weight: 700;
   letter-spacing: 3px;
+  font-weight: 700;
 }
 .toggle-btn {
-  height: 2rem;
   width: 2rem;
+  height: 2rem;
   background: var(--white);
   color: var(--primary-700);
   border-radius: var(--borderRadius);
+  border-color: transparent;
   transition: var(--transition);
   cursor: pointer;
 }
@@ -304,12 +306,13 @@ Hero
   place-items: center;
 }
 .hero-center {
-  color: var(white);
+  color: var(--white);
   width: var(--fluid-width);
   max-width: var(--max-width);
 }
+
 .hero-center h1 {
-  font-size: clamp(3rem, 3vw, 5rem);
+  font-size: clamp(3rem, 5vw, 5rem);
   margin-bottom: 1rem;
   font-weight: 700;
   line-height: 1.25;
@@ -317,6 +320,7 @@ Hero
 .hero-center p {
   line-height: 1.5;
 }
+
 @media screen and (min-width: 992px) {
   .hero-center {
     text-align: center;
@@ -329,17 +333,19 @@ Hero
     display: none;
   }
 }
+
 /*
 =============
 Sidebar
 ===============
 */
+
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   background: var(--white);
   /* toggle */
   opacity: 0;
@@ -352,10 +358,12 @@ Sidebar
   transition-duration: 1s;
 }
 /* toggle class */
+
 .sidebar-container {
   padding: 4rem 2rem;
   position: relative;
 }
+
 .close-btn {
   font-size: 2rem;
   background: transparent;
@@ -373,12 +381,15 @@ Sidebar
   margin-bottom: 1rem;
   color: var(--primary-700);
 }
+
 .sidebar-sublinks {
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 0.5rem;
 }
+
 .sidebar-sublinks a {
+  /* display: block; */
   color: var(--grey-900);
   text-transform: capitalize;
   display: flex;
@@ -393,9 +404,10 @@ Sidebar
     display: none;
   }
 }
+
 /*
 =============
-Navlinks
+Nav Links
 ===============
 */
 .nav-links {
@@ -405,8 +417,11 @@ Navlinks
   .nav-links {
     display: flex;
     justify-content: center;
+
+    align-self: stretch;
   }
   .nav-center {
+    align-self: stretch;
     display: grid;
     grid-template-columns: auto 1fr;
   }
@@ -421,6 +436,7 @@ Navlinks
     cursor: pointer;
   }
 }
+
 /*
 =============
 Submenu
@@ -433,7 +449,7 @@ Submenu
   .submenu {
     display: block;
     position: fixed;
-    top: 6rem;
+    top: 7rem;
     left: 50%;
     width: var(--fluid-width);
     max-width: var(--max-width);
@@ -442,13 +458,35 @@ Submenu
     transform: rotateX(-90deg) translateX(-50%);
     transform-origin: top;
     perspective: 1000px;
+    border-radius: var(--borderRadius);
     visibility: hidden;
     opacity: 0;
-    transition: transform 0.3s ease-in-out opacity 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    z-index: -1;
   }
   .show-submenu {
     visibility: visible;
     opacity: 1;
     transform: rotateX(0deg) translateX(-50%);
+    z-index: 10;
+  }
+  .submenu h5 {
+    margin-bottom: 1rem;
+    color: var(--primary-700);
+  }
+  .submenu-links {
+    display: grid;
+    row-gap: 0.5rem;
+  }
+  .submenu-links a {
+    /* display: block; */
+    color: var(--grey-900);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .submenu-links svg {
+    color: var(--grey-500);
   }
 }
